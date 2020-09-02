@@ -1,0 +1,116 @@
+/*
+ * @Author: 刁琪
+ * @Date: 2019-09-10 16:31:17
+ * @LastEditors: わからないよう
+ * @LastEditTime: 2020-09-02 12:03:17
+ */ 
+ .user-page{
+  background-color: #FFF;
+  min-height: 100%;
+  .login-btn{
+    position: fixed;
+    border: none;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+  }
+  .top{
+    color: #FFF;
+    height: 300px;
+    padding-bottom: 60px;
+    background: url('http://loseweight.onbetter.cn/image/user/user-bg.png');
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .user-area{
+      height: 120px;
+      padding: 0 40px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .left-area{
+        display: flex;
+        flex-direction: row;
+        .user-pic{
+          width: 120px;
+          background-color: #FFF;
+          border-radius: 120px;
+          overflow: hidden;
+          .Image{
+            width: 120px;
+            height: 120px;
+          }
+        }
+        .user-info{
+          display: block;
+          margin-left: 40px;
+          .name{
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 40px;
+            margin: 20px 0;
+          }
+        }
+      }
+      .right-area{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .right-Image{
+          width: 52px;
+          height: 52px;
+        }
+      }
+    }
+  }
+  .mid-area{
+    padding: 0 40px;
+    color: #333;
+    .window{
+      height: 120px;
+      margin-top: -60px;
+      background-color: #FFF;
+      box-shadow: 0 8px 8px 0 rgba(173,179,191,0.3);
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      .item{
+        text-align: center;
+        .num{
+          font-size: 48px;
+          margin: 8px 0 24px;
+        }
+      }
+    }
+  }
+  .menu-list{
+    padding: 40px 0;
+    .item{
+      background-color: #FFF;
+      border-bottom: 1PX solid #D6E4EF;
+      display: flex;
+      justify-content: space-between;
+      padding: 32px 40px 24px;
+      .text{
+        font-size: 32px;
+        line-height: 32px;
+        height: 32px;
+        flex: 1 0 auto;
+        display: flex;
+        .infor{
+          color: #888;
+          font-size: 24px;
+          line-height: 24px;
+          height: 24px;
+          margin: 4px 0 0 8px;
+        }
+      }
+      .menu-Image{
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}

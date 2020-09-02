@@ -1,0 +1,35 @@
+/*
+ * @Author: 刁琪
+ * @Date: 2019-09-10 17:23:58
+ * @LastEditors: わからないよう
+ * @LastEditTime: 2020-09-02 15:33:39
+ */ 
+ .qiandao-page{
+  .top-info{
+    padding: 40px;
+    font-size: 36px;
+    .week{
+      margin-left: 20px;
+    }
+  }
+  .form-area{
+
+  }
+  .sign-area{
+    margin-top: 100px;
+    padding: 40px;
+  }
+  .creat{
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    .creat-btn{
+      text-decoration: underline;
+      color: #AAA;
+    }
+  }
+  .modal-cnt{
+    min-height: 42px;
+    text-align: center;
+  }
+}
