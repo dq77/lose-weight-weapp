@@ -187,7 +187,7 @@ export default class WeekList extends Component {
         }
       }]
     };
-  
+    
     chart.setOption(option);
     return chart;
   }
