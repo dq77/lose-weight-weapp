@@ -18,10 +18,10 @@ export const signIn = data => Request({
   data
 });
 
-// 发放优惠券码
-export const getCoupon = (data) => Request({
-  url: `/v1/users/coupons/TAO_ZU_GONG/codes`,
-  method: 'POST',
+// 获取群周列表数据
+export const getWeekList = (data) => Request({
+  url: `/api/reduce/groupDataWeek`,
+  method: 'GET',
   data
 });
 

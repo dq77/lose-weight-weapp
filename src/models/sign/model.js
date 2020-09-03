@@ -28,9 +28,9 @@ export default {
       callback && callback(data)
     },
 
-    //  发放优惠券码
-    * getCoupon({payload, callback}, {call, put}) {
-      const data = yield call(signApi.getCoupon, { ...payload })
+    //  获取群周列表
+    * getWeekList({payload, callback}, {call, put}) {
+      const data = yield call(signApi.getWeekList, { ...payload })
       callback && callback(data)
     },
   

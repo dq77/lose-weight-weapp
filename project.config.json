@@ -1,8 +1,8 @@
 {
 	"miniprogramRoot": "dist/",
 	"projectname": "north-america-h5",
-	"description": "北美洲H5项目",
-	"appid": "wx7c14d5fab82d1019",
+	"description": "减肥小程序项目",
+	"appid": "wx472b2e7b2336022b",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
@@ -56,14 +56,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/user/index",
-					"pathName": "pages/user/index",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

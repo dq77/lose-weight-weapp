@@ -131,7 +131,7 @@ export default class SignIn extends Component {
   }
   toPaper = () => {
     Taro.navigateTo({
-      url: `/pages/weekList?groupId=${this.state.groupId}`
+      url: `/packageA/pages/weekList/index?groupId=${this.state.groupId}`
     })
   }
   toUser = () => {
@@ -170,12 +170,12 @@ export default class SignIn extends Component {
           {/* <Text className='creat-btn' onClick={this.toServe}>联系客服</Text>
           <Text className='creat-btn' onClick={this.toCreat}>创建群</Text> */}
         </View>
-        <AtModal isOpened={signSuccess} onConfirm={this.toPaper}>
+        <AtModal isOpened={signSuccess}>
           <AtModalHeader>打卡成功</AtModalHeader>
           <AtModalContent className='modal-cnt'>
             恭喜您，打卡成功！
           </AtModalContent>
-          <AtModalAction> <Button>返回</Button> <Button>查看周报</Button> </AtModalAction>
+          <AtModalAction> <Button>返回</Button> <Button onClick={this.toPaper}>查看周报</Button> </AtModalAction>
         </AtModal>
       </View>
     )

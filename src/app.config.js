@@ -9,6 +9,14 @@ export default {
     'pages/user/index',
     'pages/signin/index',
   ],
+  subpackages: [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/weekList/index"
+      ]
+    }
+  ],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
