@@ -34,9 +34,9 @@ export default {
       callback && callback(data)
     },
   
-    // 查询我发放的券码
-    * myCouponList({payload, callback}, {call, put}) {
-      const data = yield call(signApi.getMyCouponList, { ...payload })
+    // 创建群
+    * creatGroup({payload, callback}, {call, put}) {
+      const data = yield call(signApi.creatGroup, { ...payload })
       callback && callback(data)
     }
   },

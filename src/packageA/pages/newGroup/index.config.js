@@ -4,5 +4,5 @@
  * @LastEditors: わからないよう
  */
 export default {
-  navigationBarTitleText: '我的主页'
+  navigationBarTitleText: '创建群'
 }

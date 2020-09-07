@@ -2,7 +2,7 @@
  * @Author: 刁琪
  * @Date: 2019-09-10 17:23:58
  * @LastEditors: わからないよう
- * @LastEditTime: 2020-09-02 15:33:39
+ * @LastEditTime: 2020-09-04 14:13:20
  */ 
  .qiandao-page{
   .top-info{
@@ -23,9 +23,19 @@
     padding: 0 40px;
     display: flex;
     justify-content: space-between;
+    font-size: 28px;
+    line-height: 28px;
     .creat-btn{
       text-decoration: underline;
       color: #AAA;
+    }
+    .contact{
+      margin: 0;
+      display: block;
+      padding: 0;
+      border: none;
+      font-size: 28px;
+      line-height: 28px;
     }
   }
   .modal-cnt{

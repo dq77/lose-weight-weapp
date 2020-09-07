@@ -25,9 +25,9 @@ export const getWeekList = (data) => Request({
   data
 });
 
-// 查询我发放的券码
-export const getMyCouponList = (data) => Request({
-  url: `/v1/users/coupons/TAO_ZU_GONG/code_records/${data.page}-${data.size}`,
+// 创建群
+export const creatGroup = (data) => Request({
+  url: `/api/generateGroup`,
   method: 'GET',
   data
 });

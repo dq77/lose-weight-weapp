@@ -98,13 +98,13 @@ export default class User extends Component {
 
   toHistory = () => {
     Taro.navigateTo({
-      url: `/monthHistory`
+      url: `/packageA/pages/monthHistory/index`
     })
   }
 
   toNew = () => {
     Taro.navigateTo({
-      url: `/newGroup`
+      url: `/packageA/pages/newGroup/index`
     })
   }
   toServe = () => {
@@ -115,7 +115,7 @@ export default class User extends Component {
     const { isLogin, userInfo } = this.state
     return (
       <View className='user-page'>
-        {!isLogin && (<AtButton openType='getPhoneNumber'  onGetPhoneNumber={this.bindGetUserInfo.bind(this)} className='login-btn'></AtButton>)}
+        {/* {!isLogin && (<AtButton openType='getPhoneNumber'  onGetPhoneNumber={this.bindGetUserInfo.bind(this)} className='login-btn'></AtButton>)} */}
         <View className='top'>
           <View className='user-area' onClick={this.topClick}>
             <View className='left-area'>
@@ -161,10 +161,10 @@ export default class User extends Component {
             <View className='text'>群组制表{userInfo.groupId && (<View className='infor'>({userInfo.groupId})</View>)}</View>
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />
           </View>
-          <View className='item' onClick={this.toHistory}>
+          {/* <View className='item' onClick={this.toHistory}>
             <View className='text'>打卡记录</View>
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />
-          </View>
+          </View> */}
           <View className='item' onClick={this.toNew}>
             <View className='text'>创建新群 </View>
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />

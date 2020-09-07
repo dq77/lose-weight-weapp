@@ -137,11 +137,13 @@ export default class SignIn extends Component {
   toUser = () => {
     this.props.history.push({ pathname: `/user` });
   }
-  toServe = () => {
-    this.props.history.push({ pathname: `/kefu` });
+  onContact = (e) => {
+    console.log(e);
   }
   toCreat = () => {
-    this.props.history.push({ pathname: `/newGroup` });
+    Taro.navigateTo({
+      url: `/packageA/pages/newGroup/index`
+    })
   }
 
   render () {
@@ -167,15 +169,16 @@ export default class SignIn extends Component {
           <AtButton type='primary' onClick={this.signIn}>打卡</AtButton>
         </View>
         <View className='creat'>
-          {/* <Text className='creat-btn' onClick={this.toServe}>联系客服</Text>
-          <Text className='creat-btn' onClick={this.toCreat}>创建群</Text> */}
+          <AtButton openType='contact' onContact={this.onContact} className='creat-btn contact'>联系客服</AtButton>
+          <Text className='creat-btn' onClick={this.toServe}></Text>
+          <Text className='creat-btn' onClick={this.toCreat}>创建群</Text>
         </View>
         <AtModal isOpened={signSuccess}>
           <AtModalHeader>打卡成功</AtModalHeader>
           <AtModalContent className='modal-cnt'>
             恭喜您，打卡成功！
           </AtModalContent>
-          <AtModalAction> <Button>返回</Button> <Button onClick={this.toPaper}>查看周报</Button> </AtModalAction>
+          <AtModalAction> <Button onClick={this.toPaper}>返回</Button> <Button onClick={this.toPaper}>查看周报</Button> </AtModalAction>
         </AtModal>
       </View>
     )
