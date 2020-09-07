@@ -22,6 +22,8 @@ export default class User extends Component {
     }
   }
   componentDidMount() {
+  }
+  componentDidShow() {
     const userInfo = getCookie('userInfo')
     if (userInfo) {
       try {
