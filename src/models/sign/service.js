@@ -25,6 +25,13 @@ export const getWeekList = (data) => Request({
   data
 });
 
+// 获取群月列表数据
+export const getMonthList = (data) => Request({
+  url: `/api/reduce/groupDataMonth`,
+  method: 'GET',
+  data
+});
+
 // 创建群
 export const creatGroup = (data) => Request({
   url: `/api/generateGroup`,

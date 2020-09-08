@@ -45,7 +45,7 @@ export function appMiniLogin() {
 export function getAppMiniOpeId(code) {
   return new Promise((resolve) => {
     getOpenid({ authCode: code }).then(res => {
-      if (res.code === 200) {
+      if (res.code === '200') {
         Taro.hideLoading();
         if (res.data.token) {
           setCookie('Token', res.data.token)

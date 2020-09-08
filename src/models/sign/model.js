@@ -33,6 +33,14 @@ export default {
       const data = yield call(signApi.getWeekList, { ...payload })
       callback && callback(data)
     },
+
+    //  获取群月列表
+    * getMonthList({payload, callback}, {call, put}) {
+      const data = yield call(signApi.getMonthList, { ...payload })
+      callback && callback(data)
+    },
+
+    
   
     // 创建群
     * creatGroup({payload, callback}, {call, put}) {

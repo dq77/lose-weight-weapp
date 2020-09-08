@@ -2,13 +2,12 @@
  * @Author: 刁琪
  * @Date: 2020-07-23 20:00:23
  * @LastEditors: わからないよう
- * @LastEditTime: 2020-09-07 17:20:38
+ * @LastEditTime: 2020-09-08 14:59:33
  */ 
  .weeklist-page{
   width: 100%;
   background-color: #F5F5F9;
   .table-area{
-    max-width: 1462px;
     color: #606266;
     .top-list{
       margin-bottom: 30px;
@@ -20,29 +19,17 @@
         flex-basis: auto;
       }
     }
-    .list-table{
+    .left-area{
       background-color: #FFF;
-      width: 1462px;
+      font-size: 28px;
+      line-height: 28px;
       text-align: center;
-      .row:nth-child(2n){
-        background-color: #fafafa;
-      }
-      .row{
+      width: 94px;
+      float: left;
+      .w46{
+        background-color: #FFF;
+        box-sizing: border-box;
         height: 64px;
-      }
-      .row.active{
-        color: #303133;
-        background-color: rgb(244, 244, 245);
-        .yellow{
-          background-color: rgb(250, 236, 216);
-        }
-        .green{
-          background-color: rgb(225, 243, 216);
-        }
-      }
-      .td{
-        min-width: 68px;
-        height: 28px;
         padding: 20px 0 16px;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -52,36 +39,42 @@
         border-right: 1px solid #ebeef5;
         border-bottom: 1px solid #ebeef5;
       }
-      .w70{
-        display: inline-block;
-        width: 140px;
-      }
-      .w46{
-        display: inline-block;
-        width: 92px;
-        // border-right-color: green;
-      }
-      .brline{
-        border-right-color: #DCDFE6;
-      }
-      .nickname{
-        border-left: 1px solid #ebeef5;
-        text-decoration:underline;
-      }
-      .first{
-        border-left: 1px solid #ebeef5;
-      }
-      .yellow{
-        background-color: #fdf5e6;
-        // color: #e6a23c;
-      }
-      .green{
-        background-color: #f0f9eb;
-        // color: #67c23a;
-      }
-      .head{
-        border-top: 1px solid #ebeef5;
-        font-weight: bold;
+    }
+    .list-table{
+      float: left;
+      background-color: #FFF;
+      width: auto;
+      .right-area{
+        // padding-left: 94px;
+        .row{
+          display: flex;
+          height: 64px;
+        }
+        .td{
+          text-align: center;
+          min-width: 68px;
+          height: 28px;
+          padding: 20px 0 16px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 28px;
+          line-height: 28px;
+          border-right: 1px solid #ebeef5;
+          border-bottom: 1px solid #ebeef5;
+          width: 140px;
+        }
+        .yellow{
+          background-color: #fdf5e6;
+          // color: #e6a23c;
+        }
+        .green{
+          background-color: #f0f9eb;
+          // color: #67c23a;
+        }
+        .nickname{
+          text-decoration:underline;
+        }
       }
     }
   }

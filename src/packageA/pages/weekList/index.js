@@ -121,19 +121,24 @@ export default class WeekList extends Component {
   }
 
   changeWeek = (e) => {
-    console.log(e);
     this.setState({ date: e.detail.value }, () => { this.getList() })
   }
 
   editSign = () => {
     delCookie('signFlag')
-    Taro.navigateTo({
+    Taro.redirectTo({
       url: '/pages/signin/index'
     })
   }
 
+  delItem = () => {
+    console.log(12);
+  }
+
   toMonth = () => {
-    // this.props.history.replace({ pathname: `/monthList/${this.state.groupId}` });
+    Taro.redirectTo({
+      url: `/packageA/pages/monthList/index?groupId=${this.state.groupId}`
+    })
   }
 
   initChart = (canvas, width, height, dpr) => {
@@ -150,7 +155,7 @@ export default class WeekList extends Component {
         text: item.nickname,
         subtext: `身高：${item.height} 　 周目标：${item.weekTargetWeight<0?'-':item.weekTargetWeight} 　 总目标：${item.targetWeight} `,
         left: 'center',
-        top: 4
+        top: 14
       },
       xAxis: {
         type: 'category',
@@ -171,7 +176,7 @@ export default class WeekList extends Component {
       grid: {
         bottom: 40,
         height: 180,
-        top: 50
+        top: 60
       },
       series: [{
         data: item.weights.map(one => {
@@ -196,54 +201,53 @@ export default class WeekList extends Component {
     const { weekGroupDatas, activeItem, groupName, groupId, loading, date, ec, windowHeight } = this.state
     return (
       <View className='weeklist-page'>
-        <ScrollView className='table-area' style={{height: `${activeItem.weights? `${windowHeight-260}px`:'100vh'}`}} scrollX scrollY>
-        <View className='top-list'>
-          {/* <List.Item arrow='horizontal' onClick={this.toMonth} extra={'前往月统计'}>
-            {groupName} ({groupId})
-          </List.Item> */}
-          <AtList>
-            <AtListItem title={`${groupName} (${groupId})`} extraText='' />
-            <Picker mode='date' onChange={this.changeWeek} end={dateFormat(new Date(), 'yyyy-MM-dd')}>
-              <AtListItem title='选择日期' extraText={date} arrow='right' />
-            </Picker>
-          </AtList>
-        </View>
-          <View className='list-table' border='1' cellSpacing='0'>
-            <View className='row head'>
-              <View className='td w70 first'>昵称</View>
-              <View className='td w46 brline'>身高</View>
-              <View className='td w46'>一</View>
-              <View className='td w46'>二</View>
-              <View className='td w46'>三</View>
-              <View className='td w46'>四</View>
-              <View className='td w46'>五</View>
-              <View className='td w46'>六</View>
-              <View className='td w46 brline'>日</View>
-              <View className='td w46'>周减</View>
-              <View className='td w46'>月减</View>
-              <View className='td w46'>周目标</View>
-              <View className='td w46'>月目标</View>
-              <View className='td w46'>总目标</View>
-              <View className='td w46'>入表</View>
-            </View>
-            {weekGroupDatas.map(item => (
-              <View key={item.mobile} onClick={() => { this.clickLine(item) }} className={item.mobile === activeItem.mobile ? 'active row' : 'row'}>
-                <View className='td w70 nickname'>{item.nickname}</View>
-                <View className='td w46 brline'>{item.height}</View>
-                {item.weights.map((one, index) => (
-                  <View key={index} className={`td ${this.getColorByData(one, item.weights, index)} ${index===6 && 'brline'}`}>
-                    {one.dayWeight < 0 ? '-' : one.dayWeight}
-                  </View>
-                ))}
-                <View className={`td w46 ${item.weekReduce > 0 ? 'green' : ''} ${item.weekReduce < 0 ? 'yellow' : ''}`}>{item.weekReduce}</View>
-                <View className={`td w46 ${item.monthReduce > 0 ? 'green' : ''} ${item.monthReduce < 0 ? 'yellow' : ''}`}>{item.monthReduce}</View>
-                <View className='td w46'>{item.weekTargetWeight < 0 ? '-' : item.weekTargetWeight}</View>
-                <View className='td w46'>{item.monthTargetWeight}</View>
-                <View className='td w46'>{item.targetWeight}</View>
-                <View className='td w46'>{item.initWeight}</View>
-              </View>
-            ))}
+        <ScrollView className='table-area' style={{height: `${activeItem.weights? `${windowHeight-270}px`:'100vh'}`}} scrollY>
+          <View className='top-list'>
+            <AtList>
+              <AtListItem title={`${groupName} (${groupId})`} onClick={this.toMonth} extraText='前往月统计' arrow='right' />
+              <Picker mode='date' onChange={this.changeWeek} end={dateFormat(new Date(), 'yyyy-MM-dd')}>
+                <AtListItem title='选择日期' extraText={date} arrow='right' />
+              </Picker>
+            </AtList>
           </View>
+          <ScrollView scrollX>
+            <View className='list-table'>
+              <View className='row head'>
+                <View className='td w70 first'>昵称</View>
+                <View className='td w46 brline'>身高</View>
+                <View className='td w46'>一</View>
+                <View className='td w46'>二</View>
+                <View className='td w46'>三</View>
+                <View className='td w46'>四</View>
+                <View className='td w46'>五</View>
+                <View className='td w46'>六</View>
+                <View className='td w46 brline'>日</View>
+                <View className='td w46'>周减</View>
+                <View className='td w46'>月减</View>
+                <View className='td w46'>周目标</View>
+                <View className='td w46'>月目标</View>
+                <View className='td w46'>总目标</View>
+                <View className='td w46'>入表</View>
+              </View>
+              {weekGroupDatas.map(item => (
+                <View key={item.mobile} onClick={() => { this.clickLine(item) }} className={item.mobile === activeItem.mobile ? 'active row' : 'row'}>
+                  <View className='td w70 nickname'>{item.nickname}</View>
+                  <View className='td w46 brline'>{item.height}</View>
+                  {item.weights.map((one, index) => (
+                    <View key={index} className={`td ${this.getColorByData(one, item.weights, index)} ${index===6 && 'brline'}`}>
+                      {one.dayWeight < 0 ? '-' : one.dayWeight}
+                    </View>
+                  ))}
+                  <View className={`td w46 ${item.weekReduce > 0 ? 'green' : ''} ${item.weekReduce < 0 ? 'yellow' : ''}`}>{item.weekReduce}</View>
+                  <View className={`td w46 ${item.monthReduce > 0 ? 'green' : ''} ${item.monthReduce < 0 ? 'yellow' : ''}`}>{item.monthReduce}</View>
+                  <View className='td w46'>{item.weekTargetWeight < 0 ? '-' : item.weekTargetWeight}</View>
+                  <View className='td w46'>{item.monthTargetWeight}</View>
+                  <View className='td w46'>{item.targetWeight}</View>
+                  <View className='td w46'>{item.initWeight}</View>
+                </View>
+              ))}
+            </View>
+          </ScrollView>
           {loading && (<View>加载中</View>)}
           {!activeItem.weights && (
             <View className='btm-area'>
@@ -254,6 +258,9 @@ export default class WeekList extends Component {
         </ScrollView>
         {activeItem.weights && (
           <View className='echart-area'>
+            <View className='top-menu'>
+              {/* <View className='del-btn' onClick={this.delItem}>删除该成员</View> */}
+            </View>
             <ec-canvas className='echart-canvas' id='mychart-dom-line' canvas-id='mychart-line' ec={ec}></ec-canvas>
           </View>
         )}

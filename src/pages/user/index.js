@@ -6,6 +6,7 @@
 import React, { Component } from 'react'
 import Taro from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
+import { connect } from 'react-redux'
 import { AtButton } from 'taro-ui'
 import { getCookie, setCookie, delCookie } from '../../utils/cookie'
 import { dateFormat } from '../../utils/date'
@@ -13,6 +14,9 @@ import { appMiniCheckSession } from '../../utils/login'
 
 import './index.scss'
 
+@connect(({ user }) => ({
+  ...user
+}))
 export default class User extends Component {
   constructor(props) {
     super(props);
@@ -38,28 +42,30 @@ export default class User extends Component {
   }
 
   topClick = () => {
-    console.log('已登录');
+    this.toSign()
   }
   // 微信授权获取用户手机号
   bindGetUserInfo(e) {
     appMiniCheckSession().then( (openid)=> {
-      if (e.detail.errMsg === 'getPhoneNumber:ok') {
-        Taro.showLoading({
-          title: '登录中'
+      if (e.detail.errMsg === 'getUserInfo:ok') {
+        this.setState({
+          isLogin: true
         })
-        // console.log('授权用户信息：', e);
-        this.props.dispatch({
-          type: 'user/weappGetUserInfo',
-          payload: {
-            encryptedData: e.detail.encryptedData,
-            openid: openid,
-            sessionKey: getCookie('sessionKey'),
-            iv: e.detail.iv
-          },
-          callback: ()=> {
-            Taro.hideLoading();
-          }
-        })
+        // Taro.showLoading({
+        //   title: '登录中'
+        // })
+        // this.props.dispatch({
+        //   type: 'user/weappGetUserInfo',
+        //   payload: {
+        //     encryptedData: e.detail.encryptedData,
+        //     openid: openid,
+        //     sessionKey: getCookie('sessionKey'),
+        //     iv: e.detail.iv
+        //   },
+        //   callback: ()=> {
+        //     Taro.hideLoading();
+        //   }
+        // })
       } else {
         Taro.showToast({
           title: '授权失败',
@@ -117,7 +123,7 @@ export default class User extends Component {
     const { isLogin, userInfo } = this.state
     return (
       <View className='user-page'>
-        {/* {!isLogin && (<AtButton openType='getPhoneNumber'  onGetPhoneNumber={this.bindGetUserInfo.bind(this)} className='login-btn'></AtButton>)} */}
+        {!isLogin && (<AtButton openType='getUserInfo'  onGetUserInfo={this.bindGetUserInfo.bind(this)} className='login-btn'></AtButton>)}
         <View className='top'>
           <View className='user-area' onClick={this.topClick}>
             <View className='left-area'>

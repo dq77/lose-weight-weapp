@@ -130,12 +130,14 @@ export default class SignIn extends Component {
     }
   }
   toPaper = () => {
-    Taro.navigateTo({
+    Taro.redirectTo({
       url: `/packageA/pages/weekList/index?groupId=${this.state.groupId}`
     })
   }
   toUser = () => {
-    this.props.history.push({ pathname: `/user` });
+    Taro.redirectTo({
+      url: '/pages/user/index'
+    })
   }
   onContact = (e) => {
     console.log(e);
@@ -178,7 +180,7 @@ export default class SignIn extends Component {
           <AtModalContent className='modal-cnt'>
             恭喜您，打卡成功！
           </AtModalContent>
-          <AtModalAction> <Button onClick={this.toPaper}>返回</Button> <Button onClick={this.toPaper}>查看周报</Button> </AtModalAction>
+          <AtModalAction> <Button onClick={this.toUser}>返回</Button> <Button onClick={this.toPaper}>查看周报</Button> </AtModalAction>
         </AtModal>
       </View>
     )

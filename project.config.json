@@ -27,7 +27,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -56,7 +56,22 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "packageA/pages/monthList/index",
+					"pathName": "packageA/pages/monthList/index",
+					"query": "groupId=100000",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageA/pages/weekList/index",
+					"pathName": "packageA/pages/weekList/index",
+					"query": "groupId=100000",
+					"scene": null
+				}
+			]
 		}
 	}
 }

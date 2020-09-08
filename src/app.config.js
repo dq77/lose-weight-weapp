@@ -14,6 +14,7 @@ export default {
       "root": "packageA",
       "pages": [
         "pages/weekList/index",
+        "pages/monthList/index",
         "pages/newGroup/index",
       ]
     }
