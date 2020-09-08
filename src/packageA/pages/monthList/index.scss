@@ -2,7 +2,7 @@
  * @Author: 刁琪
  * @Date: 2020-07-23 20:00:23
  * @LastEditors: わからないよう
- * @LastEditTime: 2020-09-08 14:59:33
+ * @LastEditTime: 2020-09-08 15:11:44
  */ 
  .weeklist-page{
   width: 100%;
@@ -63,6 +63,9 @@
           border-right: 1px solid #ebeef5;
           border-bottom: 1px solid #ebeef5;
           width: 140px;
+        }
+        .td:nth-child(2n){
+          background-color: #fafafa;
         }
         .yellow{
           background-color: #fdf5e6;
