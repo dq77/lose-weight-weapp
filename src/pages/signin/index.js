@@ -24,7 +24,7 @@ export default class SignIn extends Component {
       week: '',
       mobile: '',
       groupId: '',
-      nickname: '',
+      nickName: '',
       height: '',
       targetWeight: '',
       monthTargetWeight: '',
@@ -38,27 +38,23 @@ export default class SignIn extends Component {
   componentDidMount() {
     const userInfo = getCookie('userInfo')
     if (userInfo) {
-      try {
-        console.log(userInfo);
-        const signFlag = getCookie('signFlag')
-        if (signFlag === dateFormat(new Date(), 'yyyy-MM-dd')) {
-          // 今日已经打过卡了 直接去列表页
-          this.setState({ groupId: userInfo.groupId }, () => {
-            this.toPaper()
-          })
-        }
-        this.setState({
-          mobile: userInfo.mobile,
-          groupId: userInfo.groupId,
-          nickname: userInfo.nickname,
-          height: userInfo.height,
-          targetWeight: userInfo.targetWeight,
-          monthTargetWeight: userInfo.monthTargetWeight,
-          weekTargetWeight: userInfo.weekTargetWeight,
+      const signFlag = getCookie('signFlag')
+      if (signFlag === dateFormat(new Date(), 'yyyy-MM-dd')) {
+        // 今日已经打过卡了 直接去列表页
+        this.setState({ groupId: userInfo.groupId }, () => {
+          this.toPaper()
         })
-      } catch(e) {
-        delCookie('userInfo')
       }
+      this.setState({
+        userInfo,
+        mobile: userInfo.mobile,
+        groupId: userInfo.groupId,
+        nickName: userInfo.nickName,
+        height: userInfo.height,
+        targetWeight: userInfo.targetWeight,
+        monthTargetWeight: userInfo.monthTargetWeight,
+        weekTargetWeight: userInfo.weekTargetWeight,
+      })
     }
     this.getDay()
   }
@@ -71,7 +67,7 @@ export default class SignIn extends Component {
 
   changemobile = (mobile) => { this.setState({ mobile: mobile }) }
   changegroupId = (groupId) => { this.setState({ groupId: groupId }) }
-  changenickname = (nickname) => { this.setState({ nickname: nickname }) }
+  changenickName = (nickName) => { this.setState({ nickName: nickName }) }
   changeheight = (height) => { this.setState({ height: height }) }
   changetargetWeight = (targetWeight) => { this.setState({ targetWeight: targetWeight }) }
   changemonthTargetWeight = (monthTargetWeight) => { this.setState({ monthTargetWeight: monthTargetWeight }) }
@@ -80,7 +76,7 @@ export default class SignIn extends Component {
   validate = () => {
     if (!this.state.mobile) { return '请输入手机号' }
     if (!this.state.groupId) { return '请输入群号' }
-    if (!this.state.nickname) { return '请输入昵称' }
+    if (!this.state.nickName) { return '请输入昵称' }
     if (!this.state.height) { return '请输入身高' }
     if (!this.state.targetWeight) { return '请输入目标体重' }
     if (!this.state.monthTargetWeight) { return '请输入月目标体重' }
@@ -100,7 +96,7 @@ export default class SignIn extends Component {
     const param = {
       mobile: this.state.mobile,
       groupId: this.state.groupId,
-      nickname: this.state.nickname,
+      nickName: this.state.nickName,
       height: this.state.height,
       targetWeight: this.state.targetWeight,
       weekTargetWeight: this.state.weekTargetWeight,
@@ -112,7 +108,7 @@ export default class SignIn extends Component {
       payload: { ...param },
       callback: res => {
         if (res.code === '200') {
-          setCookie('userInfo', param);
+          setCookie('userInfo', { ...this.state.userInfo, ...param});
           setCookie('signFlag', dateFormat(new Date(), 'yyyy-MM-dd'));
           this.setState({ signSuccess: true })
         } else {
@@ -149,7 +145,7 @@ export default class SignIn extends Component {
   }
 
   render () {
-    const { today, week, mobile, groupId, nickname, height, targetWeight, monthTargetWeight, weekTargetWeight, todayWeight, signSuccess } = this.state
+    const { today, week, mobile, groupId, nickName, height, targetWeight, monthTargetWeight, weekTargetWeight, todayWeight, signSuccess } = this.state
     return (
       <View className='qiandao-page'>
         <View className='top-info'>
@@ -159,7 +155,7 @@ export default class SignIn extends Component {
           <AtForm>
             <AtInput name='mobile' title='手机号码' type='phone' placeholder='请输入手机号' value={mobile} onChange={this.changemobile} />
             <AtInput name='groupId' title='群号' type='digit' placeholder='请输入群号' value={groupId} onChange={this.changegroupId} />
-            <AtInput name='nickname' title='昵称' type='text' placeholder='请输入昵称' value={nickname} onChange={this.changenickname} />
+            <AtInput name='nickName' title='昵称' type='text' placeholder='请输入昵称' value={nickName} onChange={this.changenickName} />
             <AtInput name='height' title='身高' type='digit' placeholder='请输入身高' value={height} onChange={this.changeheight}><View>cm</View></AtInput>
             <AtInput name='targetWeight' title='目标体重' type='digit' placeholder='请输入目标体重' value={targetWeight} onChange={this.changetargetWeight}><View>kg</View></AtInput>
             <AtInput name='monthTargetWeight' title='月目标体重' type='digit' placeholder='请输入月目标体重' value={monthTargetWeight} onChange={this.changemonthTargetWeight}><View>kg</View></AtInput>

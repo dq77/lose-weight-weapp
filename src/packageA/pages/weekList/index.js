@@ -231,7 +231,7 @@ export default class WeekList extends Component {
               </View>
               {weekGroupDatas.map(item => (
                 <View key={item.mobile} onClick={() => { this.clickLine(item) }} className={item.mobile === activeItem.mobile ? 'active row' : 'row'}>
-                  <View className='td w70 nickname'>{item.nickname}</View>
+                  <View className='td w70 nickName'>{item.nickname}</View>
                   <View className='td w46 brline'>{item.height}</View>
                   {item.weights.map((one, index) => (
                     <View key={index} className={`td ${this.getColorByData(one, item.weights, index)} ${index===6 && 'brline'}`}>

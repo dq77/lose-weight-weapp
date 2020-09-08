@@ -24,6 +24,7 @@ export default {
 
     // 签到
     * signIn({payload,callback},{call,put}) {
+      payload.nickname = payload.nickName
       const data = yield call(signApi.signIn, { ...payload })
       callback && callback(data)
     },

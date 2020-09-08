@@ -111,7 +111,7 @@ export default class MonthList extends Component {
   
     const option = {
       title: {
-        text: item.nickname,
+        text: item.nickName,
         subtext: `身高：${item.height} 　 月目标：${item.monthTargetWeight<0?'-':item.monthTargetWeight} 　 总目标：${item.targetWeight} `,
         left: 'center',
         top: 14

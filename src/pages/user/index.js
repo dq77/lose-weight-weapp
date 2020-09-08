@@ -48,8 +48,11 @@ export default class User extends Component {
   bindGetUserInfo(e) {
     appMiniCheckSession().then( (openid)=> {
       if (e.detail.errMsg === 'getUserInfo:ok') {
+        const userInfo = { ...this.state.userInfo, ...e.detail.userInfo }
+        setCookie('userInfo', userInfo)
         this.setState({
-          isLogin: true
+          isLogin: true,
+          userInfo
         })
         // Taro.showLoading({
         //   title: '登录中'
@@ -177,8 +180,10 @@ export default class User extends Component {
             <View className='text'>创建新群 </View>
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />
           </View>
-          <View className='item' onClick={this.toServe}>
-            <View className='text'>联系客服</View>
+          <View className='item'>
+            <View className='text'>
+              <AtButton openType='contact' onContact={this.toServe} className='contact'></AtButton>联系客服
+            </View>
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />
           </View>
         </View>
