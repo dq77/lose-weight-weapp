@@ -7,7 +7,7 @@ import React, { Component } from 'react'
 import Taro, { getCurrentInstance } from '@tarojs/taro'
 import { View, Picker, ScrollView } from '@tarojs/components'
 import { connect } from 'react-redux'
-import { AtList, AtListItem } from 'taro-ui'
+import { AtList, AtListItem, AtActionSheet, AtActionSheetItem } from 'taro-ui'
 import * as echarts from '../../lib/ec-canvas/echarts';
 import { delCookie } from '../../../utils/cookie'
 import { dateFormat } from '../../../utils/date'
@@ -28,6 +28,7 @@ export default class WeekList extends Component {
       weekGroupDatas: [],
       activeItem: {},
       ec: {onInit: this.initChart},
+      showActionSheet: false, // 显示功能弹窗
       loading: true
     }
   }
@@ -124,6 +125,17 @@ export default class WeekList extends Component {
     this.setState({ date: e.detail.value }, () => { this.getList() })
   }
 
+  showActionSheet = () => {
+    this.setState({
+      showActionSheet: true
+    })
+  }
+  closeActionSheet = () => {
+    this.setState({
+      showActionSheet: false
+    })
+  }
+
   editSign = () => {
     delCookie('signFlag')
     Taro.redirectTo({
@@ -198,7 +210,7 @@ export default class WeekList extends Component {
   }
 
   render() {
-    const { weekGroupDatas, activeItem, groupName, groupId, loading, date, ec, windowHeight } = this.state
+    const { weekGroupDatas, activeItem, groupName, groupId, loading, date, ec, windowHeight, showActionSheet } = this.state
     return (
       <View className='weeklist-page'>
         <ScrollView className='table-area' style={{height: `${activeItem.weights? `${windowHeight-270}px`:'100vh'}`}} scrollY>
@@ -251,11 +263,15 @@ export default class WeekList extends Component {
           {loading && (<View>加载中</View>)}
           {!activeItem.weights && (
             <View className='btm-area'>
-              <View className='edit' onClick={this.editSign}>修改打卡</View>
+              <View className='edit' onClick={this.showActionSheet}>更多功能</View>
               <View>(点击昵称可查看详细数据)</View>
             </View>
           )}
         </ScrollView>
+        <AtActionSheet isOpened={showActionSheet} cancelText='取消' onClose={this.closeActionSheet}>
+          <AtActionSheetItem onClick={this.toMonth}>前往月统计</AtActionSheetItem>
+          <AtActionSheetItem onClick={this.editSign}>修改打卡</AtActionSheetItem>
+        </AtActionSheet>
         {activeItem.weights && (
           <View className='echart-area'>
             <View className='top-menu'>
