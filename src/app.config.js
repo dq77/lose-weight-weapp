@@ -15,7 +15,7 @@ export default {
       "pages": [
         "pages/weekList/index",
         "pages/monthList/index",
-        "pages/newGroup/index",
+        // "pages/newGroup/index",
       ]
     }
   ],

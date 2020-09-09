@@ -168,17 +168,17 @@ export default class User extends Component {
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />
           </View>
           <View className='item' onClick={this.toList}>
-            <View className='text'>群组制表{userInfo.groupId && (<View className='infor'>({userInfo.groupId})</View>)}</View>
+            <View className='text'>组员制表{userInfo.groupId && (<View className='infor'>({userInfo.groupId})</View>)}</View>
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />
           </View>
           {/* <View className='item' onClick={this.toHistory}>
             <View className='text'>打卡记录</View>
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />
           </View> */}
-          <View className='item' onClick={this.toNew}>
+          {/* <View className='item' onClick={this.toNew}>
             <View className='text'>创建新群 </View>
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />
-          </View>
+          </View> */}
           <View className='item'>
             <View className='text'>
               <AtButton openType='contact' onContact={this.toServe} className='contact'></AtButton>联系客服

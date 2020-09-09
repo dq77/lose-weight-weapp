@@ -75,7 +75,7 @@ export default class SignIn extends Component {
   changetodayWeight = (todayWeight) => { this.setState({ todayWeight: todayWeight }) }
   validate = () => {
     if (!this.state.mobile) { return '请输入手机号' }
-    if (!this.state.groupId) { return '请输入群号' }
+    if (!this.state.groupId) { return '请输入组号' }
     if (!this.state.nickName) { return '请输入昵称' }
     if (!this.state.height) { return '请输入身高' }
     if (!this.state.targetWeight) { return '请输入目标体重' }
@@ -154,7 +154,7 @@ export default class SignIn extends Component {
         <View className='form-area'>
           <AtForm>
             <AtInput name='mobile' title='手机号码' type='phone' placeholder='请输入手机号' value={mobile} onChange={this.changemobile} />
-            <AtInput name='groupId' title='群号' type='digit' placeholder='请输入群号' value={groupId} onChange={this.changegroupId} />
+            <AtInput name='groupId' title='组号' type='digit' placeholder='请输入组号' value={groupId} onChange={this.changegroupId} />
             <AtInput name='nickName' title='昵称' type='text' placeholder='请输入昵称' value={nickName} onChange={this.changenickName} />
             <AtInput name='height' title='身高' type='digit' placeholder='请输入身高' value={height} onChange={this.changeheight}><View>cm</View></AtInput>
             <AtInput name='targetWeight' title='目标体重' type='digit' placeholder='请输入目标体重' value={targetWeight} onChange={this.changetargetWeight}><View>kg</View></AtInput>
@@ -169,7 +169,7 @@ export default class SignIn extends Component {
         <View className='creat'>
           <AtButton openType='contact' onContact={this.onContact} className='creat-btn contact'>联系客服</AtButton>
           <Text className='creat-btn' onClick={this.toServe}></Text>
-          <Text className='creat-btn' onClick={this.toCreat}>创建群</Text>
+          {/* <Text className='creat-btn' onClick={this.toCreat}>创建群</Text> */}
         </View>
         <AtModal isOpened={signSuccess}>
           <AtModalHeader>打卡成功</AtModalHeader>
