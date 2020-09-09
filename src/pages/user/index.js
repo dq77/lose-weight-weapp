@@ -32,8 +32,7 @@ export default class User extends Component {
     if (userInfo) {
       try {
         this.setState({
-          userInfo: userInfo,
-          isLogin: true
+          userInfo: userInfo
         })
       } catch(e) {
         delCookie('userInfo')

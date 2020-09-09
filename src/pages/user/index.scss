@@ -2,7 +2,7 @@
  * @Author: 刁琪
  * @Date: 2019-09-10 16:31:17
  * @LastEditors: わからないよう
- * @LastEditTime: 2020-09-08 17:27:38
+ * @LastEditTime: 2020-09-09 16:52:59
  */ 
  .user-page{
   background-color: #FFF;
@@ -13,7 +13,9 @@
     top: 0;
     right: 0;
     left: 0;
+    // height: 300px;
     height: 100vh;
+    z-index: 5;
   }
   .top{
     color: #FFF;
