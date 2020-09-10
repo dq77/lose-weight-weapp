@@ -7,6 +7,7 @@ import React, { Component } from 'react'
 import { Provider } from "react-redux";
 import 'taro-ui/dist/style/index.scss'
 import dva from "./utils/dva";
+import { appMiniCheckSession } from './utils/login'
 import models from "./models/index";
 import './app.scss'
 
@@ -19,7 +20,7 @@ const store = dvaApp.getStore();
 class App extends Component {
 
   componentDidMount () {
-    // console.log(11);
+    appMiniCheckSession()
   }
 
   componentDidShow () {}

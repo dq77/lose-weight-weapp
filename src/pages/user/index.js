@@ -30,13 +30,10 @@ export default class User extends Component {
   componentDidShow() {
     const userInfo = getCookie('userInfo')
     if (userInfo) {
-      try {
-        this.setState({
-          userInfo: userInfo
-        })
-      } catch(e) {
-        delCookie('userInfo')
-      }
+      this.setState({
+        userInfo: userInfo,
+        isLogin: !!userInfo.avatarUrl
+      })
     }
   }
 
