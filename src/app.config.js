@@ -1,7 +1,7 @@
 /*
  * @Author: 刁琪
  * @Date: 2020-08-14 17:28:16
- * @LastEditors: わからないよう
+ * @LastEditors: 掉漆
  */
 export default {
   pages: [
@@ -15,7 +15,7 @@ export default {
       "pages": [
         "pages/weekList/index",
         "pages/monthList/index",
-        // "pages/newGroup/index",
+        "pages/newGroup/index",
       ]
     }
   ],

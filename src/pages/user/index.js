@@ -1,7 +1,7 @@
 /*
  * @Author: 刁琪
  * @Date: 2020-08-17 13:53:28
- * @LastEditors: わからないよう
+ * @LastEditors: 掉漆
  */
 import React, { Component } from 'react'
 import Taro from '@tarojs/taro'
@@ -172,10 +172,10 @@ export default class User extends Component {
             <View className='text'>打卡记录</View>
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />
           </View> */}
-          {/* <View className='item' onClick={this.toNew}>
-            <View className='text'>创建新群 </View>
+          <View className='item' onClick={this.toNew}>
+            <View className='text'>创建组 </View>
             <Image className='menu-Image' src='http://loseweight.onbetter.cn/image/user/menu-right.png' alt='right' />
-          </View> */}
+          </View>
           <View className='item'>
             <View className='text'>
               <AtButton openType='contact' onContact={this.toServe} className='contact'></AtButton>联系客服

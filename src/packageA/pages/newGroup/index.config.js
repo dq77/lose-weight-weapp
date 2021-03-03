@@ -1,8 +1,8 @@
 /*
  * @Author: 刁琪
  * @Date: 2020-08-17 13:53:28
- * @LastEditors: わからないよう
+ * @LastEditors: 掉漆
  */
 export default {
-  navigationBarTitleText: '创建群'
+  navigationBarTitleText: '创建组'
 }
