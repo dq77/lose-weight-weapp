@@ -216,7 +216,7 @@ export default class WeekList extends Component {
         <ScrollView className='table-area' style={{height: `${activeItem.weights? `${windowHeight-270}px`:'100vh'}`}} scrollY>
           <View className='top-list'>
             <AtList>
-              <AtListItem title={`${groupName} (${groupId})`} onClick={this.toMonth} extraText='前往月统计' arrow='right' />
+              <AtListItem title={`${groupName} (${groupId})`} onClick={this.showActionSheet} extraText='更多功能' arrow='right' />
               <Picker mode='date' onChange={this.changeWeek} end={dateFormat(new Date(), 'yyyy-MM-dd')}>
                 <AtListItem title='选择日期' extraText={date} arrow='right' />
               </Picker>
